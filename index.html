@@ -52,7 +52,6 @@ body {
   cursor: default;
 }
 
-/* ── GRAIN TEXTURE ── */
 body::before {
   content: '';
   position: fixed; inset: 0; z-index: 0;
@@ -60,7 +59,6 @@ body::before {
   pointer-events: none;
 }
 
-/* ── AMBIENT GLOW ── */
 body::after {
   content: '';
   position: fixed;
@@ -71,9 +69,6 @@ body::after {
   pointer-events: none; z-index: 0;
 }
 
-/* ══════════════════════════════════════════
-   CURSOR — custom gold dot
-══════════════════════════════════════════ */
 .cursor {
   position: fixed; z-index: 9999;
   width: 8px; height: 8px;
@@ -98,33 +93,29 @@ nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
   padding: 1.4rem 3rem;
   display: flex; align-items: center; justify-content: space-between;
-  background: linear-gradient(180deg, rgba(10,9,6,.95) 0%, rgba(10,9,6,0) 100%);
+  background: rgba(10, 9, 6, 0.8);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--md-border);
 }
 
 .nav-mark {
-  display: flex; align-items: center; gap: .7rem;
-  text-decoration: none;
-}
-.nav-ornament {
-  font-size: 1rem; color: var(--md-gold);
-  animation: spin-slow 12s linear infinite;
-}
-@keyframes spin-slow { to { transform: rotate(360deg); } }
-
-.nav-name {
+  display: flex; align-items: center; gap: .8rem;
+  text-decoration: none; color: var(--md-cream);
   font-family: 'Cinzel', serif;
-  font-size: .82rem; font-weight: 600;
-  letter-spacing: .22em; text-transform: uppercase;
-  color: var(--md-gold-lt);
+  font-weight: 600; letter-spacing: .1em;
 }
+.nav-mark:hover { color: var(--md-gold); }
+.nav-ornament { font-size: .9rem; color: var(--md-gold); }
 
-.nav-links { display: flex; gap: 2rem; }
-.nav-links a {
-  font-size: .72rem; letter-spacing: .18em; text-transform: uppercase;
-  color: var(--md-muted); text-decoration: none;
-  transition: color .2s;
+.nav-links {
+  display: flex; gap: 3rem;
 }
-.nav-links a:hover { color: var(--md-gold-lt); }
+.nav-links a {
+  text-decoration: none; color: var(--md-cream);
+  font-size: .85rem; letter-spacing: .08em; text-transform: uppercase;
+  transition: color .3s;
+}
+.nav-links a:hover { color: var(--md-gold); }
 
 /* ══════════════════════════════════════════
    HERO
@@ -207,13 +198,19 @@ nav {
   background: linear-gradient(180deg, var(--md-gold-dk) 0%, transparent 100%);
   animation: scroll-pulse 2s ease-in-out infinite;
 }
+
 @keyframes scroll-pulse {
   0%, 100% { opacity: .3; transform: scaleY(1); }
   50% { opacity: 1; transform: scaleY(1.2); }
 }
 
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
 /* ══════════════════════════════════════════
-   SECTION SHARED
+   SECTIONS & LAYOUT
 ══════════════════════════════════════════ */
 section {
   position: relative; z-index: 1;
@@ -222,31 +219,6 @@ section {
   margin: 0 auto;
 }
 
-.section-label {
-  font-family: 'Syne Mono', monospace;
-  font-size: .62rem; letter-spacing: .3em; text-transform: uppercase;
-  color: var(--md-gold-dk);
-  margin-bottom: 1rem;
-  display: flex; align-items: center; gap: 1rem;
-}
-.section-label::after {
-  content: '';
-  flex: 1; max-width: 60px; height: 1px;
-  background: var(--md-border-lt);
-}
-
-.section-title {
-  font-family: 'Cinzel', serif;
-  font-size: clamp(1.8rem, 4vw, 3rem);
-  font-weight: 400;
-  color: var(--md-cream);
-  line-height: 1.15;
-  margin-bottom: 1rem;
-}
-
-/* ══════════════════════════════════════════
-   DIVIDER
-══════════════════════════════════════════ */
 .full-divider {
   position: relative; z-index: 1;
   width: 100%; height: 1px;
@@ -259,6 +231,276 @@ section {
   font-size: .7rem; color: var(--md-gold-dk);
   background: var(--md-black);
   padding: 0 1rem;
+}
+
+.section-label {
+  font-family: 'Syne Mono', monospace;
+  font-size: .62rem; letter-spacing: .3em; text-transform: uppercase;
+  color: var(--md-gold-dk);
+  margin-bottom: 1rem;
+  display: flex; align-items: center; gap: 1rem;
+}
+.section-label::before { content: '✦'; font-size: .8rem; }
+
+.section-title {
+  font-family: 'Cinzel', serif;
+  font-size: 2.8rem; font-weight: 600; letter-spacing: .05em;
+  color: var(--md-cream);
+  margin-bottom: 2rem;
+  line-height: 1.2;
+}
+
+/* ══════════════════════════════════════════
+   PROJECTS SECTION
+══════════════════════════════════════════ */
+.projects-intro {
+  font-size: 1rem;
+  color: var(--md-muted);
+  font-style: italic;
+  margin-bottom: 3rem;
+  line-height: 1.6;
+}
+
+/* FEATURED PROJECT */
+.featured-project {
+  margin-bottom: 4rem;
+  background: var(--md-surface);
+  border: 1px solid var(--md-border);
+  border-radius: var(--md-r);
+  overflow: hidden;
+}
+
+.featured-project-image {
+  width: 100%;
+  height: 400px;
+  background: var(--md-panel);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 1px;
+  background-color: var(--md-border);
+}
+
+.featured-project-image-item {
+  background: var(--md-panel);
+  overflow: hidden;
+  position: relative;
+}
+
+.featured-project-image-item a {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  position: relative;
+}
+
+.featured-project-image-item a::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(232,200,122,.15) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity .3s ease;
+  pointer-events: none;
+}
+
+.featured-project-image-item a:hover::after {
+  opacity: 1;
+}
+
+.featured-project-image-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .3s ease;
+}
+
+.featured-project-image-item a:hover img {
+  transform: scale(1.05);
+}
+
+.featured-project-details {
+  padding: 2rem;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .4rem;
+  margin-bottom: 1rem;
+}
+
+.project-tag {
+  font-family: 'Syne Mono', monospace;
+  font-size: .6rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  padding: .2rem .55rem;
+  border: 1px solid var(--md-gold-dk);
+  border-radius: 2px;
+  color: var(--md-gold-dk);
+  display: inline-block;
+}
+
+.project-tag.highlight {
+  background: var(--md-gold-dk);
+  color: var(--md-black);
+}
+
+.project-name {
+  font-family: 'Cinzel', serif;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--md-gold-lt);
+  margin-bottom: .8rem;
+  letter-spacing: .05em;
+}
+
+.project-desc {
+  font-size: .95rem;
+  line-height: 1.6;
+  color: var(--md-muted);
+  margin-bottom: 1.5rem;
+}
+
+.project-links {
+  display: flex;
+  gap: .8rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.project-link {
+  font-family: 'Syne Mono', monospace;
+  font-size: .7rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  padding: .5rem 1.2rem;
+  border: 1px solid var(--md-gold);
+  color: var(--md-gold);
+  text-decoration: none;
+  border-radius: var(--md-r);
+  transition: all .3s;
+  display: inline-block;
+}
+
+.project-link:hover {
+  background: var(--md-gold);
+  color: var(--md-black);
+}
+
+.project-link.primary {
+  background: var(--md-gold);
+  color: var(--md-black);
+}
+
+.project-link.primary:hover {
+  background: var(--md-gold-lt);
+  border-color: var(--md-gold-lt);
+}
+
+.project-status {
+  font-family: 'Syne Mono', monospace;
+  font-size: .65rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  padding: .3rem .8rem;
+  background: var(--md-gold);
+  color: var(--md-black);
+  border-radius: 2px;
+  display: inline-block;
+  font-weight: 600;
+}
+
+/* OTHER PROJECTS GRID */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.project-card {
+  background: var(--md-surface);
+  border: 1px solid var(--md-border);
+  border-radius: var(--md-r);
+  overflow: hidden;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  transition: border-color .3s, transform .3s;
+  position: relative;
+}
+
+.project-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--md-gold-glow) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity .3s;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.project-card:hover {
+  border-color: var(--md-gold);
+  transform: translateY(-4px);
+}
+
+.project-card:hover::before {
+  opacity: 1;
+}
+
+.project-card-image {
+  width: 100%;
+  height: 200px;
+  background: var(--md-panel);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.project-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .3s ease;
+}
+
+.project-card:hover .project-card-image img {
+  transform: scale(1.05);
+}
+
+.project-card-body {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.project-card-body .project-tags {
+  margin-bottom: 1rem;
+}
+
+.project-card-body .project-name {
+  font-size: 1.3rem;
+  margin-bottom: .6rem;
+}
+
+.project-card-body .project-desc {
+  font-size: .9rem;
+  margin-bottom: 1rem;
+  flex: 1;
+}
+
+.project-card-body .project-links {
+  margin-bottom: .5rem;
 }
 
 /* ══════════════════════════════════════════
@@ -300,223 +542,6 @@ section {
 }
 .value-title { font-size: .88rem; font-weight: 500; color: var(--md-cream); margin-bottom: .2rem; }
 .value-desc  { font-size: .78rem; color: var(--md-muted); line-height: 1.5; }
-
-/* ══════════════════════════════════════════
-   PROJECTS
-══════════════════════════════════════════ */
-.projects-intro {
-  font-family: 'Cormorant Garamond', serif;
-  font-style: italic; font-size: 1.15rem; font-weight: 300;
-  color: var(--md-muted);
-  max-width: 520px;
-  margin-top: .8rem; margin-bottom: 3.5rem;
-  line-height: 1.7;
-}
-
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 2.5rem;
-  max-width: 100%;
-}
-
-.featured-project-wrapper {
-  margin-bottom: 2rem;
-  display: flex;
-  justify-content: center;
-  width: 100%;
-}
-
-.featured-project-wrapper .project-card {
-  width: 100%;
-  max-width: 600px;
-  margin: 0;
-  padding: 0;
-}
-
-.project-card {
-  background: var(--md-surface);
-  border: 1px solid var(--md-border);
-  border-radius: var(--md-r);
-  overflow: hidden;
-  text-decoration: none;
-  display: flex; flex-direction: column;
-  transition: border-color .3s, transform .3s;
-  position: relative;
-}
-
-.project-card::before {
-  content: '';
-  position: absolute; inset: 0;
-  background: linear-gradient(135deg, var(--md-gold-glow) 0%, transparent 60%);
-  opacity: 0; transition: opacity .3s;
-  pointer-events: none;
-  z-index: 1;
-}
-
-.project-card:hover {
-  border-color: var(--md-gold);
-  transform: translateY(-4px);
-}
-
-.project-card:hover::before { opacity: 1; }
-
-.project-card.featured {
-  flex-direction: column;
-  width: 100%;
-  max-width: 100%;
-  margin: 0 auto;
-}
-
-.project-img {
-  width: 100%; height: 200px;
-  background: var(--md-panel);
-  display: flex; align-items: center; justify-content: center;
-  overflow: hidden; flex-shrink: 0;
-  position: relative;
-}
-
-.project-img-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  width: 100%;
-  height: 100%;
-  gap: 1px;
-  background: var(--md-border);
-}
-
-.project-img-grid-item {
-  background: var(--md-panel);
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.project-img-grid-item a {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.project-img-grid-item a::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(232,200,122,.15) 0%, transparent 60%);
-  opacity: 0;
-  transition: opacity .3s ease;
-  pointer-events: none;
-}
-
-.project-img-grid-item a:hover::after {
-  opacity: 1;
-}
-
-.project-img-grid-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: fill;
-  transition: transform .3s ease;
-}
-
-.project-card:hover .project-img-grid-item img {
-  transform: scale(1.05);
-}
-.project-card.featured .project-img {
-  width: 100%;
-  height: 320px;
-  min-height: 320px;
-}
-
-.project-img-pattern {
-  width: 100%; height: 100%;
-  display: flex; align-items: center; justify-content: center;
-}
-
-.project-body {
-  padding: 1.6rem;
-  display: flex; flex-direction: column;
-  flex: 1;
-}
-
-.project-tags {
-  display: flex; flex-wrap: wrap; gap: .4rem;
-  margin-bottom: 1rem;
-}
-.project-tag {
-  font-family: 'Syne Mono', monospace;
-  font-size: .6rem; letter-spacing: .12em; text-transform: uppercase;
-  padding: .2rem .55rem;
-  border: 1px solid var(--md-border-lt);
-  border-radius: 2px; color: var(--md-muted);
-}
-.project-tag.highlight { border-color: var(--md-gold-dk); color: var(--md-gold); }
-
-.project-name {
-  font-family: 'Cinzel', serif;
-  font-size: 1.15rem; font-weight: 600;
-  color: var(--md-gold-lt);
-  margin-bottom: .5rem; line-height: 1.2;
-}
-.project-desc {
-  font-size: .85rem; font-weight: 300;
-  color: rgba(240,230,206,.6);
-  line-height: 1.7;
-  flex: 1; margin-bottom: 1.4rem;
-}
-
-.project-footer {
-  display: flex; align-items: center;
-  justify-content: space-between;
-  padding-top: 1rem;
-  border-top: 1px solid var(--md-border);
-}
-
-.project-links { display: flex; gap: .7rem; }
-.project-link {
-  font-family: 'Syne Mono', monospace;
-  font-size: .65rem; letter-spacing: .12em; text-transform: uppercase;
-  padding: .35rem .8rem;
-  border: 1px solid var(--md-border-lt);
-  border-radius: 2px;
-  color: var(--md-muted); text-decoration: none;
-  transition: all .2s;
-}
-.project-link:hover { color: var(--md-gold-lt); border-color: var(--md-gold-dk); }
-.project-link.primary {
-  background: linear-gradient(135deg, var(--md-gold-dk), var(--md-gold));
-  border-color: transparent; color: var(--md-black); font-weight: 600;
-}
-.project-link.primary:hover { opacity: .9; }
-
-.project-status {
-  font-family: 'Syne Mono', monospace;
-  font-size: .6rem; letter-spacing: .12em; text-transform: uppercase;
-  color: var(--md-success);
-  display: flex; align-items: center; gap: .35rem;
-}
-.project-status::before {
-  content: '';
-  width: 5px; height: 5px; border-radius: 50%;
-  background: var(--md-success);
-  animation: blink 2s ease-in-out infinite;
-}
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: .3; }
-}
-.project-status.wip { color: var(--md-gold); }
-.project-status.wip::before { background: var(--md-gold); animation: none; }
-
-/* ── PROJECT SVG ILLUSTRATIONS ── */
-.auction-svg { width: 100%; height: 100%; }
 
 /* ══════════════════════════════════════════
    STACK
@@ -638,59 +663,25 @@ section {
 .contact-link:hover { opacity: .85; transform: translateY(-2px); }
 
 /* ══════════════════════════════════════════
-   FOOTER
-══════════════════════════════════════════ */
-footer {
-  position: relative; z-index: 1;
-  text-align: center;
-  padding: 2.5rem;
-  border-top: 1px solid var(--md-border);
-}
-.footer-mark {
-  font-family: 'Cinzel', serif;
-  font-size: .75rem; letter-spacing: .22em; text-transform: uppercase;
-  color: var(--md-gold-dk); margin-bottom: .5rem;
-}
-.footer-sub {
-  font-family: 'Syne Mono', monospace;
-  font-size: .6rem; letter-spacing: .14em;
-  color: var(--md-faint);
-}
-
-/* ══════════════════════════════════════════
-   ANIMATIONS
-══════════════════════════════════════════ */
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(24px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
-.reveal {
-  opacity: 0; transform: translateY(30px);
-  transition: opacity .7s ease, transform .7s ease;
-}
-.reveal.visible { opacity: 1; transform: translateY(0); }
-
-/* ══════════════════════════════════════════
    RESPONSIVE
 ══════════════════════════════════════════ */
 @media (max-width: 900px) {
   nav { padding: 1.2rem 1.5rem; }
   .nav-links { display: none; }
   section { padding: 4rem 1.5rem; }
+  .featured-project-image { height: 400px; }
+  .projects-grid { grid-template-columns: 1fr; }
   .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-  .project-card.featured { grid-column: span 1; flex-direction: column; }
-  .project-card.featured .project-img { width: 100%; height: 180px; }
-  .philosophy-points { grid-template-columns: 1fr; gap: 1rem; }
-  .hero { padding: 7rem 1.5rem 3rem; }
+  .philosophy-points { grid-template-columns: 1fr; }
 }
+
 </style>
 </head>
 <body>
 
 <div class="cursor" id="cursor"></div>
 
-<!-- ══════════ NAV ══════════ -->
+<!-- NAV -->
 <nav>
   <a class="nav-mark" href="#">
     <span class="nav-ornament">✦</span>
@@ -704,7 +695,7 @@ footer {
   </div>
 </nav>
 
-<!-- ══════════ HERO ══════════ -->
+<!-- HERO -->
 <div class="hero">
   <div class="hero-eyebrow">✦ &nbsp; South Africa &nbsp; ✦</div>
   <h1 class="hero-name">
@@ -729,205 +720,142 @@ footer {
   </div>
 </div>
 
+<div class="full-divider"></div>
 
-
-<!-- ══════════ PROJECTS ══════════ -->
+<!-- PROJECTS SECTION -->
 <section id="projects">
-  <div class="section-label reveal">Projects</div>
-  <h2 class="section-title reveal">Built for the real world</h2>
-  <p class="projects-intro reveal">
+  <div class="section-label">Projects</div>
+  <h2 class="section-title">Built for the real world</h2>
+  <p class="projects-intro">
     Every project solves a genuine problem for a real community.
     No demos. No concept pieces. Things that actually get used.
   </p>
 
-  <!-- ══════════ FEATURED PROJECT ══════════ -->
-  <div class="featured-project-wrapper reveal">
-    <a class="project-card featured"
-       href="https://silentauction.morneydeetlefs.workers.dev/"
-       target="_blank">
-      <div class="project-img">
-        <div class="project-img-grid">
-          <div class="project-img-grid-item">
-            <a href="https://silentauction.morneydeetlefs.workers.dev/" target="_blank" onclick="event.stopPropagation()">
-              <img src="https://i.ibb.co/nN880YbL/scr-Cap-Index.png" alt="Bidding/Public Page"/>
-            </a>
-          </div>
-          <div class="project-img-grid-item">
-            <a href="https://silentauction.morneydeetlefs.workers.dev/admin.html" target="_blank" onclick="event.stopPropagation()">
-              <img src="https://i.ibb.co/N2NSKQrt/scr-Cap-Admin.png" alt="Admin Panel"/>
-            </a>
-          </div>
-          <div class="project-img-grid-item">
-            <a href="https://silentauction.morneydeetlefs.workers.dev/proposal-generator.html" target="_blank" onclick="event.stopPropagation()">
-              <img src="https://i.ibb.co/8nYr8dDC/scr-Cap-Proposal.png" alt="Proposal Generator"/>
-            </a>
-          </div>
-          <div class="project-img-grid-item">
-            <a href="https://silentauction.morneydeetlefs.workers.dev/admin-help.html" target="_blank" onclick="event.stopPropagation()">
-              <img src="https://i.ibb.co/2HJKP7V/scr-Cap-Help.png" alt="Help File"/>
-            </a>
-          </div>
-        </div>
+  <!-- FEATURED PROJECT: SILENT AUCTION -->
+  <div class="featured-project">
+    <div class="featured-project-image">
+      <div class="featured-project-image-item">
+        <a href="https://silentauction.morneydeetlefs.workers.dev/" target="_blank">
+          <img src="https://i.ibb.co/nN880YbL/scr-Cap-Index.png" alt="Bidding/Public Page"/>
+        </a>
       </div>
+      <div class="featured-project-image-item">
+        <a href="https://silentauction.morneydeetlefs.workers.dev/admin.html" target="_blank">
+          <img src="https://i.ibb.co/N2NSKQrt/scr-Cap-Admin.png" alt="Admin Panel"/>
+        </a>
       </div>
-  
-
-<div class="full-divider"></div>
-      <div class="project-body">
-        <div class="project-tags">
-          <span class="project-tag highlight">Featured</span>
-          <span class="project-tag">Community</span>
-          <span class="project-tag">Apps Script</span>
-          <span class="project-tag">Tombola</span>
-          <span class="project-tag">WhatsApp</span>
-        </div>
-        <div class="project-name">Silent Auction + Tombola Platform</div>
-        <div class="project-desc">
-          A fully functional silent auction and tombola platform for community and charity events.
-          Participants bid on items and earn raffle tickets by watching sponsor video ads.
-          Zero monthly cost — Google Sheets as database, Apps Script as API,
-          Cloudflare Pages for hosting. WhatsApp-integrated throughout.
-        </div>
-        <div class="project-footer">
-          <div class="project-links">
-            <a class="project-link primary"
-               href="https://silentauction.morneydeetlefs.workers.dev/"
-               target="_blank" onclick="event.stopPropagation()">Live Platform</a>
-            <a class="project-link"
-               href="https://silentauction.morneydeetlefs.workers.dev/admin.html"
-               target="_blank" onclick="event.stopPropagation()">Admin</a>
-            <a class="project-link"
-               href="https://silentauction.morneydeetlefs.workers.dev/admin-help.html"
-               target="_blank" onclick="event.stopPropagation()">Help</a>
-            <a class="project-link"
-               href="https://silentauction.morneydeetlefs.workers.dev/proposal-generator.html"
-               target="_blank" onclick="event.stopPropagation()">Proposals</a>
-          </div>
-          <div class="project-status">Live</div>
-        </div>
-
-    </a>
+      <div class="featured-project-image-item">
+        <a href="https://silentauction.morneydeetlefs.workers.dev/proposal-generator.html" target="_blank">
+          <img src="https://i.ibb.co/8nYr8dDC/scr-Cap-Proposal.png" alt="Proposal Generator"/>
+        </a>
+      </div>
+      <div class="featured-project-image-item">
+        <a href="https://silentauction.morneydeetlefs.workers.dev/admin-help.html" target="_blank">
+          <img src="https://i.ibb.co/2HJKP7V/scr-Cap-Help.png" alt="Help File"/>
+        </a>
+      </div>
+    </div>
+    <div class="featured-project-details">
+      <div class="project-tags">
+        <span class="project-tag highlight">Featured</span>
+        <span class="project-tag">Community</span>
+        <span class="project-tag">Apps Script</span>
+        <span class="project-tag">Tombola</span>
+        <span class="project-tag">WhatsApp</span>
+      </div>
+      <div class="project-name">Silent Auction + Tombola Platform</div>
+      <div class="project-desc">
+        A fully functional silent auction and tombola platform for community and charity events.
+        Participants bid on items and earn raffle tickets by watching sponsor video ads.
+        Zero monthly cost — Google Sheets as database, Apps Script as API,
+        Cloudflare Pages for hosting. WhatsApp-integrated throughout.
+      </div>
+      <div class="project-links">
+        <a class="project-link primary" href="https://silentauction.morneydeetlefs.workers.dev/" target="_blank">Live Platform</a>
+        <a class="project-link" href="https://silentauction.morneydeetlefs.workers.dev/admin.html" target="_blank">Admin</a>
+        <a class="project-link" href="https://silentauction.morneydeetlefs.workers.dev/admin-help.html" target="_blank">Help</a>
+        <a class="project-link" href="https://silentauction.morneydeetlefs.workers.dev/proposal-generator.html" target="_blank">Proposals</a>
+      </div>
+      <div class="project-status">Live</div>
+    </div>
   </div>
 
   <div class="full-divider"></div>
 
-  <!-- ══════════ OTHER PROJECTS ══════════ -->
-  <h3 class="section-title reveal" style="font-size: 1.4rem; margin-top: 2rem; margin-bottom: 2rem;">Other Work</h3>
+  <!-- OTHER PROJECTS -->
+  <h3 class="section-title" style="font-size: 1.6rem; margin-top: 2rem; margin-bottom: 2rem;">Other Work</h3>
 
   <div class="projects-grid">
-<a class="project-card reveal" href="https://elysiumhomewatch-oss.github.io/workClock/admin" target="_blank">
-  <div class="project-img">
-    <img src="https://i.ibb.co/nswn07mm/admin.png"
-         alt="Project Name"
-         style="width:100%;height:100%;object-fit:cover"/>
-  </div>
-  <div class="project-body">
-    <div class="project-tags">
-      <span class="project-tag highlight">Featured</span>
-      <span class="project-tag">Tag One</span>
-      <span class="project-tag">Tag Two</span>
-    </div>
-    <div class="project-name">WorkClock</div>
-    <div class="project-desc">
-      A simple on device time keeping method
-    </div>
-    <div class="project-footer">
-      <div class="project-links">
-        <a class="project-link primary"
-           https://elysiumhomewatch-oss.github.io/workClock/admin"
-           target="_blank" onclick="event.stopPropagation()">Live Site</a>
-        <a class="project-link"
-           href="https://github.com/elysiumhomewatch-oss/workClock"
-           target="_blank" onclick="event.stopPropagation()">GitHub</a>
+    <!-- WorkClock -->
+    <a class="project-card" href="https://elysiumhomewatch-oss.github.io/workClock/admin" target="_blank">
+      <div class="project-card-image">
+        <img src="https://i.ibb.co/nswn07mm/admin.png" alt="WorkClock"/>
       </div>
-      <div class="project-status">Live</div>
-    </div>
-  </div>
-</a>
-
-<div></div>
-
-<a class="project-card reveal" href="https://morneydeetlefs.github.io/Verdure/" target="_blank">
-  <div class="project-img">
-    <img src="https://i.ibb.co/sh9rX8V/verdure.png"
-         alt="Project Name"
-         style="width:100%;height:100%;object-fit:cover"/>
-  </div>
-  <div class="project-body">
-    <div class="project-tags">
-      <span class="project-tag highlight">Featured</span>
-      <span class="project-tag">Tag One</span>
-      <span class="project-tag">Tag Two</span>
-    </div>
-    <div class="project-name">Verdure</div>
-    <div class="project-desc">Point and click guerilla gardening game</div>
-    <div class="project-footer">
-      <div class="project-links">
-        <a class="project-link primary"
-           https://elysiumhomewatch-oss.github.io/workClock/admin"
-           target="_blank" onclick="event.stopPropagation()">Live Site</a>
-        <a class="project-link"
-           href="https://github.com/elysiumhomewatch-oss/workClock"
-           target="_blank" onclick="event.stopPropagation()">GitHub</a>
-      </div>
-      <div class="project-status">Live</div>
-    </div>
-  </div>
-
-</a>
-<div></div>
-
-    <!-- PLACEHOLDER — Future Project 2 -->
-    <div class="project-card reveal" style="opacity:.25;pointer-events:none">
-      <div class="project-img">
-        <svg viewBox="0 0 280 200" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%">
-          <rect width="280" height="200" fill="#1a1610"/>
-          <rect x="60" y="60" width="160" height="80" rx="4" fill="none" stroke="#2c2619" stroke-width="1" stroke-dasharray="4 4"/>
-          <text x="140" y="155" text-anchor="middle" font-family="Syne Mono, monospace" font-size="8"
-            letter-spacing="3" fill="#2c2619">VERDURE</text>
-        </svg>
-      </div>
-      <div class="project-body">
-        <div class="project-tags"><span class="project-tag">Planned</span></div>
-        <div class="project-name" style="color:var(--md-faint)">Future Project</div>
-        <div class="project-desc">The future project.</div>
-        <div class="project-footer">
-          <div class="project-status wip">Planned</div>
+      <div class="project-card-body">
+        <div class="project-tags">
+          <span class="project-tag">Featured</span>
+          <span class="project-tag">Tag One</span>
+          <span class="project-tag">Tag Two</span>
         </div>
+        <div class="project-name">WorkClock</div>
+        <div class="project-desc">A sample on device time keeping method</div>
+        <div class="project-links">
+          <a class="project-link primary" href="https://elysiumhomewatch-oss.github.io/workClock/admin" target="_blank">Live</a>
+          <a class="project-link" href="https://github.com/elysiumhomewatch-oss/workClock" target="_blank">GitHub</a>
+        </div>
+        <div class="project-status">Live</div>
       </div>
-    </div>
+    </a>
 
+    <!-- Verdure -->
+    <a class="project-card" href="https://morneydeetlefs.github.io/Verdure/" target="_blank">
+      <div class="project-card-image">
+        <img src="https://i.ibb.co/sh9rX8V/verdure.png" alt="Verdure"/>
+      </div>
+      <div class="project-card-body">
+        <div class="project-tags">
+          <span class="project-tag">Featured</span>
+          <span class="project-tag">Tag One</span>
+        </div>
+        <div class="project-name">Verdure</div>
+        <div class="project-desc">Growing a mini hydroponics ecosystem with sensors and displays</div>
+        <div class="project-links">
+          <a class="project-link primary" href="https://morneydeetlefs.github.io/Verdure/" target="_blank">Live</a>
+        </div>
+        <div class="project-status">Live</div>
+      </div>
+    </a>
   </div>
+
 </section>
 
 <div class="full-divider"></div>
 
-<!-- ══════════ STACK ══════════ -->
+<!-- PLACEHOLDER SECTIONS -->
 <section id="stack" class="stack-section">
-  <div class="section-label reveal">Stack</div>
-  <h2 class="section-title reveal">Tools of the trade</h2>
+  <div class="section-label">Stack</div>
+  <h2 class="section-title">Tools of the trade</h2>
 
   <div class="stack-grid">
-    <div class="stack-item reveal"><div class="stack-icon">⚡</div><div class="stack-name">JavaScript</div></div>
-    <div class="stack-item reveal"><div class="stack-icon">📄</div><div class="stack-name">HTML / CSS</div></div>
-    <div class="stack-item reveal"><div class="stack-icon">📊</div><div class="stack-name">Google Sheets</div></div>
-    <div class="stack-item reveal"><div class="stack-icon">⚙️</div><div class="stack-name">Apps Script</div></div>
-    <div class="stack-item reveal"><div class="stack-icon">☁️</div><div class="stack-name">Cloudflare</div></div>
-    <div class="stack-item reveal"><div class="stack-icon">🖼️</div><div class="stack-name">ImgBB API</div></div>
-    <div class="stack-item reveal"><div class="stack-icon">▶️</div><div class="stack-name">YouTube API</div></div>
-    <div class="stack-item reveal"><div class="stack-icon">💬</div><div class="stack-name">WhatsApp</div></div>
+    <div class="stack-item"><div class="stack-icon">⚡</div><div class="stack-name">JavaScript</div></div>
+    <div class="stack-item"><div class="stack-icon">📄</div><div class="stack-name">HTML / CSS</div></div>
+    <div class="stack-item"><div class="stack-icon">📊</div><div class="stack-name">Google Sheets</div></div>
+    <div class="stack-item"><div class="stack-icon">⚙️</div><div class="stack-name">Apps Script</div></div>
+    <div class="stack-item"><div class="stack-icon">☁️</div><div class="stack-name">Cloudflare</div></div>
+    <div class="stack-item"><div class="stack-icon">🖼️</div><div class="stack-name">ImgBB API</div></div>
+    <div class="stack-item"><div class="stack-icon">▶️</div><div class="stack-name">YouTube API</div></div>
+    <div class="stack-item"><div class="stack-icon">💬</div><div class="stack-name">WhatsApp</div></div>
   </div>
 </section>
 
 <div class="full-divider"></div>
 
-<!-- ══════════ ABOUT ══════════ -->
 <section id="about">
-  <div class="section-label reveal">About</div>
-  <h2 class="section-title reveal">The person behind the work</h2>
+  <div class="section-label">About</div>
+  <h2 class="section-title">The person behind the work</h2>
 
   <div class="about-grid">
-    <div class="about-text reveal">
+    <div class="about-text">
       <p>
         I'm <strong>Morney Deetlefs</strong>, based in <strong>South Africa</strong>.
         I build web platforms, tools and systems for community organisations,
@@ -947,7 +875,7 @@ footer {
       </p>
     </div>
 
-    <div class="about-values reveal">
+    <div class="about-values">
       <div class="value-item">
         <div class="value-num">01</div>
         <div>
@@ -979,7 +907,7 @@ footer {
     </div>
   </div>
 
-  <div class="philosophy-wrap reveal" style="margin-top:4rem">
+  <div class="philosophy-wrap" style="margin-top:4rem">
     <p class="philosophy-quote">
       The best tool is the one that <em>costs nothing</em> to run,
       <em>anyone</em> can maintain, and actually <em>gets used</em>.
@@ -1006,9 +934,8 @@ footer {
 
 <div class="full-divider"></div>
 
-<!-- ══════════ CONTACT ══════════ -->
 <section id="contact">
-  <div class="contact-wrap reveal">
+  <div class="contact-wrap">
     <h2 class="contact-title">Let's build something</h2>
     <p class="contact-sub">Have a community project, event platform or tool idea? Get in touch.</p>
     <div class="contact-links">
@@ -1022,60 +949,17 @@ footer {
   </div>
 </section>
 
-<!-- ══════════ FOOTER ══════════ -->
-<footer>
-  <div class="footer-mark">✦ &nbsp; MD Works &nbsp; ✦</div>
-  <div class="footer-sub">Morney Deetlefs · South Africa · Builder of useful things for real people</div>
-</footer>
-
 <script>
-// ── CURSOR ────────────────────────────────────────────────
+// Custom cursor
 const cursor = document.getElementById('cursor');
-let mx = 0, my = 0, cx = 0, cy = 0;
-
-document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
-
-function animateCursor() {
-  cx += (mx - cx) * 0.15;
-  cy += (my - cy) * 0.15;
-  cursor.style.left = cx + 'px';
-  cursor.style.top  = cy + 'px';
-  requestAnimationFrame(animateCursor);
-}
-animateCursor();
-
-document.querySelectorAll('a, button, .project-card').forEach(el => {
-  el.addEventListener('mouseenter', () => cursor.classList.add('large'));
-  el.addEventListener('mouseleave', () => cursor.classList.remove('large'));
+document.addEventListener('mousemove', (e) => {
+  cursor.style.left = e.clientX + 'px';
+  cursor.style.top = e.clientY + 'px';
 });
 
-// ── SCROLL REVEAL ─────────────────────────────────────────
-const revealObserver = new IntersectionObserver(entries => {
-  entries.forEach((entry, i) => {
-    if (entry.isIntersecting) {
-      setTimeout(() => entry.target.classList.add('visible'), i * 60);
-      revealObserver.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.1 });
-
-document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
-
-// ── ACTIVE NAV LINK ───────────────────────────────────────
-const sections  = document.querySelectorAll('section[id]');
-const navLinks  = document.querySelectorAll('.nav-links a');
-
-const navObserver = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      navLinks.forEach(l => l.style.color = '');
-      const match = document.querySelector(`.nav-links a[href="#${entry.target.id}"]`);
-      if (match) match.style.color = 'var(--md-gold-lt)';
-    }
-  });
-}, { rootMargin: '-40% 0px -50% 0px' });
-
-sections.forEach(s => navObserver.observe(s));
+document.addEventListener('mousedown', () => cursor.classList.add('large'));
+document.addEventListener('mouseup', () => cursor.classList.remove('large'));
 </script>
+
 </body>
 </html>
