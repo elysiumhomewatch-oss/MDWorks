@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>MD Works â€” Builder of useful things for real people</title>
-<meta name="description" content="MD Works â€” Morney Deetlefs. Builder of useful things for real people. South Africa."/>
+<title>MD Works — Builder of useful things for real people</title>
+<meta name="description" content="MD Works — Morney Deetlefs. Builder of useful things for real people. South Africa."/>
 <meta property="og:title" content="MD Works"/>
 <meta property="og:description" content="Builder of useful things for real people."/>
 <meta property="og:url" content="https://silentauction.morneydeetlefs.workers.dev/portfolio.html"/>
@@ -12,9 +12,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Raleway:wght@200;300;400;500&family=Syne+Mono&display=swap" rel="stylesheet"/>
 <style>
 
-/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-   MD WORKS â€” BRAND TOKENS
-â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+/* ══════════════════════════════════════════
+   MD WORKS — BRAND TOKENS
+══════════════════════════════════════════ */
 :root {
   --md-black:      #0a0906;
   --md-dark:       #110e09;
@@ -37,9 +37,9 @@
   --md-r:          4px;
 }
 
-/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+/* ══════════════════════════════════════════
    RESET & BASE
-â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+══════════════════════════════════════════ */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
 
@@ -52,7 +52,7 @@ body {
   cursor: default;
 }
 
-/* â”€â”€ GRAIN TEXTURE â”€â”€ */
+/* ── GRAIN TEXTURE ── */
 body::before {
   content: '';
   position: fixed; inset: 0; z-index: 0;
@@ -60,7 +60,7 @@ body::before {
   pointer-events: none;
 }
 
-/* â”€â”€ AMBIENT GLOW â”€â”€ */
+/* ── AMBIENT GLOW ── */
 body::after {
   content: '';
   position: fixed;
@@ -71,9 +71,9 @@ body::after {
   pointer-events: none; z-index: 0;
 }
 
-/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-   CURSOR â€” custom gold dot
-â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+/* ══════════════════════════════════════════
+   CURSOR — custom gold dot
+══════════════════════════════════════════ */
 .cursor {
   position: fixed; z-index: 9999;
   width: 8px; height: 8px;
@@ -91,9 +91,9 @@ body::after {
   opacity: .5;
 }
 
-/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+/* ══════════════════════════════════════════
    NAV
-â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+══════════════════════════════════════════ */
 nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
   padding: 1.4rem 3rem;
@@ -126,9 +126,9 @@ nav {
 }
 .nav-links a:hover { color: var(--md-gold-lt); }
 
-/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+/* ══════════════════════════════════════════
    HERO
-â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+══════════════════════════════════════════ */
 .hero {
   position: relative; z-index: 1;
   min-height: 100vh;
@@ -212,9 +212,9 @@ nav {
   50% { opacity: 1; transform: scaleY(1.2); }
 }
 
-/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+/* ══════════════════════════════════════════
    SECTION SHARED
-â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+══════════════════════════════════════════ */
 section {
   position: relative; z-index: 1;
   padding: 6rem 3rem;
@@ -244,9 +244,9 @@ section {
   margin-bottom: 1rem;
 }
 
-/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+/* ══════════════════════════════════════════
    DIVIDER
-â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+══════════════════════════════════════════ */
 .full-divider {
   position: relative; z-index: 1;
   width: 100%; height: 1px;
@@ -254,16 +254,16 @@ section {
   display: flex; align-items: center; justify-content: center;
 }
 .full-divider::after {
-  content: 'âœ¦';
+  content: '✦';
   position: absolute;
   font-size: .7rem; color: var(--md-gold-dk);
   background: var(--md-black);
   padding: 0 1rem;
 }
 
-/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+/* ══════════════════════════════════════════
    ABOUT
-â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+══════════════════════════════════════════ */
 .about-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -301,9 +301,9 @@ section {
 .value-title { font-size: .88rem; font-weight: 500; color: var(--md-cream); margin-bottom: .2rem; }
 .value-desc  { font-size: .78rem; color: var(--md-muted); line-height: 1.5; }
 
-/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+/* ══════════════════════════════════════════
    PROJECTS
-â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+══════════════════════════════════════════ */
 .projects-intro {
   font-family: 'Cormorant Garamond', serif;
   font-style: italic; font-size: 1.15rem; font-weight: 300;
@@ -316,7 +316,22 @@ section {
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 1.5rem;
+  gap: 2.5rem;
+  max-width: 100%;
+}
+
+.featured-project-wrapper {
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.featured-project-wrapper .project-card {
+  width: 100%;
+  max-width: 600px;
+  margin: 0;
+  padding: 0;
 }
 
 .project-card {
@@ -329,22 +344,28 @@ section {
   transition: border-color .3s, transform .3s;
   position: relative;
 }
+
 .project-card::before {
   content: '';
   position: absolute; inset: 0;
   background: linear-gradient(135deg, var(--md-gold-glow) 0%, transparent 60%);
   opacity: 0; transition: opacity .3s;
   pointer-events: none;
+  z-index: 1;
 }
+
 .project-card:hover {
   border-color: var(--md-gold);
   transform: translateY(-4px);
 }
+
 .project-card:hover::before { opacity: 1; }
 
 .project-card.featured {
-  grid-column: span 2;
-  flex-direction: row;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
 }
 
 .project-img {
@@ -354,8 +375,64 @@ section {
   overflow: hidden; flex-shrink: 0;
   position: relative;
 }
+
+.project-img-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  width: 100%;
+  height: 100%;
+  gap: 1px;
+  background: var(--md-border);
+}
+
+.project-img-grid-item {
+  background: var(--md-panel);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.project-img-grid-item a {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.project-img-grid-item a::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(232,200,122,.15) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity .3s ease;
+  pointer-events: none;
+}
+
+.project-img-grid-item a:hover::after {
+  opacity: 1;
+}
+
+.project-img-grid-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  transition: transform .3s ease;
+}
+
+.project-card:hover .project-img-grid-item img {
+  transform: scale(1.05);
+}
 .project-card.featured .project-img {
-  width: 45%; height: auto; min-height: 260px;
+  width: 100%;
+  height: 320px;
+  min-height: 320px;
 }
 
 .project-img-pattern {
@@ -438,12 +515,12 @@ section {
 .project-status.wip { color: var(--md-gold); }
 .project-status.wip::before { background: var(--md-gold); animation: none; }
 
-/* â”€â”€ PROJECT SVG ILLUSTRATIONS â”€â”€ */
+/* ── PROJECT SVG ILLUSTRATIONS ── */
 .auction-svg { width: 100%; height: 100%; }
 
-/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+/* ══════════════════════════════════════════
    STACK
-â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+══════════════════════════════════════════ */
 .stack-section { padding-top: 2rem; }
 
 .stack-grid {
@@ -468,9 +545,9 @@ section {
   color: var(--md-muted);
 }
 
-/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+/* ══════════════════════════════════════════
    PHILOSOPHY
-â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+══════════════════════════════════════════ */
 .philosophy-wrap {
   margin-top: 3rem;
   padding: 3rem;
@@ -480,7 +557,7 @@ section {
   position: relative; overflow: hidden;
 }
 .philosophy-wrap::before {
-  content: 'âœ¦';
+  content: '✦';
   position: absolute; top: -1.5rem; left: 50%;
   transform: translateX(-50%);
   font-size: 3rem; color: var(--md-border);
@@ -516,9 +593,9 @@ section {
 .phil-title { font-size: .85rem; font-weight: 500; color: var(--md-gold-lt); margin-bottom: .3rem; }
 .phil-desc  { font-size: .78rem; color: var(--md-muted); line-height: 1.6; font-weight: 300; }
 
-/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+/* ══════════════════════════════════════════
    CONTACT
-â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+══════════════════════════════════════════ */
 .contact-wrap {
   text-align: center;
   padding: 5rem 2rem 4rem;
@@ -560,9 +637,9 @@ section {
 }
 .contact-link:hover { opacity: .85; transform: translateY(-2px); }
 
-/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+/* ══════════════════════════════════════════
    FOOTER
-â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+══════════════════════════════════════════ */
 footer {
   position: relative; z-index: 1;
   text-align: center;
@@ -580,9 +657,9 @@ footer {
   color: var(--md-faint);
 }
 
-/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+/* ══════════════════════════════════════════
    ANIMATIONS
-â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+══════════════════════════════════════════ */
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(24px); }
   to   { opacity: 1; transform: translateY(0); }
@@ -594,9 +671,9 @@ footer {
 }
 .reveal.visible { opacity: 1; transform: translateY(0); }
 
-/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+/* ══════════════════════════════════════════
    RESPONSIVE
-â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+══════════════════════════════════════════ */
 @media (max-width: 900px) {
   nav { padding: 1.2rem 1.5rem; }
   .nav-links { display: none; }
@@ -613,10 +690,10 @@ footer {
 
 <div class="cursor" id="cursor"></div>
 
-<!-- â•â•â•â•â•â•â•â•â•â• NAV â•â•â•â•â•â•â•â•â•â• -->
+<!-- ══════════ NAV ══════════ -->
 <nav>
   <a class="nav-mark" href="#">
-    <span class="nav-ornament">âœ¦</span>
+    <span class="nav-ornament">✦</span>
     <span class="nav-name">MD Works</span>
   </a>
   <div class="nav-links">
@@ -627,9 +704,9 @@ footer {
   </div>
 </nav>
 
-<!-- â•â•â•â•â•â•â•â•â•â• HERO â•â•â•â•â•â•â•â•â•â• -->
+<!-- ══════════ HERO ══════════ -->
 <div class="hero">
-  <div class="hero-eyebrow">âœ¦ &nbsp; South Africa &nbsp; âœ¦</div>
+  <div class="hero-eyebrow">✦ &nbsp; South Africa &nbsp; ✦</div>
   <h1 class="hero-name">
     <span class="line1">MD</span>
     <span class="line2">WORKS</span>
@@ -652,9 +729,9 @@ footer {
   </div>
 </div>
 
-<div class="full-divider"></div>
 
-<!-- â•â•â•â•â•â•â•â•â•â• PROJECTS â•â•â•â•â•â•â•â•â•â• -->
+
+<!-- ══════════ PROJECTS ══════════ -->
 <section id="projects">
   <div class="section-label reveal">Projects</div>
   <h2 class="section-title reveal">Built for the real world</h2>
@@ -663,55 +740,39 @@ footer {
     No demos. No concept pieces. Things that actually get used.
   </p>
 
-  <div class="projects-grid">
-
-    <!-- FEATURED â€” Silent Auction -->
-    <a class="project-card featured reveal"
+  <!-- ══════════ FEATURED PROJECT ══════════ -->
+  <div class="featured-project-wrapper reveal">
+    <a class="project-card featured"
        href="https://silentauction.morneydeetlefs.workers.dev/"
        target="_blank">
       <div class="project-img">
-        <svg class="auction-svg" viewBox="0 0 400 260" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stop-color="#1a1610"/>
-              <stop offset="100%" stop-color="#211c14"/>
-            </linearGradient>
-            <linearGradient id="g2" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#c9943c" stop-opacity=".8"/>
-              <stop offset="100%" stop-color="#7a5815" stop-opacity=".3"/>
-            </linearGradient>
-          </defs>
-          <rect width="400" height="260" fill="url(#g1)"/>
-          <!-- Grid lines -->
-          <line x1="0" y1="65" x2="400" y2="65" stroke="#2c2619" stroke-width=".5"/>
-          <line x1="0" y1="130" x2="400" y2="130" stroke="#2c2619" stroke-width=".5"/>
-          <line x1="0" y1="195" x2="400" y2="195" stroke="#2c2619" stroke-width=".5"/>
-          <line x1="100" y1="0" x2="100" y2="260" stroke="#2c2619" stroke-width=".5"/>
-          <line x1="200" y1="0" x2="200" y2="260" stroke="#2c2619" stroke-width=".5"/>
-          <line x1="300" y1="0" x2="300" y2="260" stroke="#2c2619" stroke-width=".5"/>
-          <!-- Bid bars -->
-          <rect x="30" y="80" width="40" height="150" rx="2" fill="url(#g2)" opacity=".4"/>
-          <rect x="90" y="50" width="40" height="180" rx="2" fill="url(#g2)" opacity=".6"/>
-          <rect x="150" y="100" width="40" height="130" rx="2" fill="url(#g2)" opacity=".35"/>
-          <rect x="210" y="30" width="40" height="200" rx="2" fill="url(#g2)" opacity=".8"/>
-          <rect x="270" y="70" width="40" height="160" rx="2" fill="url(#g2)" opacity=".5"/>
-          <rect x="330" y="110" width="40" height="120" rx="2" fill="url(#g2)" opacity=".3"/>
-          <!-- Gold accent line -->
-          <polyline points="50,80 110,50 170,100 230,30 290,70 350,110"
-            fill="none" stroke="#c9943c" stroke-width="1.5" opacity=".6"/>
-          <!-- Dots -->
-          <circle cx="50" cy="80" r="3" fill="#c9943c"/>
-          <circle cx="110" cy="50" r="3" fill="#c9943c"/>
-          <circle cx="170" cy="100" r="3" fill="#c9943c"/>
-          <circle cx="230" cy="30" r="5" fill="#e8c87a"/>
-          <circle cx="290" cy="70" r="3" fill="#c9943c"/>
-          <circle cx="350" cy="110" r="3" fill="#c9943c"/>
-          <!-- Label -->
-          <text x="200" y="240" text-anchor="middle"
-            font-family="Cinzel, serif" font-size="9" letter-spacing="3"
-            fill="#7a5815" text-transform="uppercase">SILENT AUCTION PLATFORM</text>
-        </svg>
+        <div class="project-img-grid">
+          <div class="project-img-grid-item">
+            <a href="https://silentauction.morneydeetlefs.workers.dev/" target="_blank" onclick="event.stopPropagation()">
+              <img src="https://i.ibb.co/nN880YbL/scr-Cap-Index.png" alt="Bidding/Public Page"/>
+            </a>
+          </div>
+          <div class="project-img-grid-item">
+            <a href="https://silentauction.morneydeetlefs.workers.dev/admin.html" target="_blank" onclick="event.stopPropagation()">
+              <img src="https://i.ibb.co/N2NSKQrt/scr-Cap-Admin.png" alt="Admin Panel"/>
+            </a>
+          </div>
+          <div class="project-img-grid-item">
+            <a href="https://silentauction.morneydeetlefs.workers.dev/proposal-generator.html" target="_blank" onclick="event.stopPropagation()">
+              <img src="https://i.ibb.co/8nYr8dDC/scr-Cap-Proposal.png" alt="Proposal Generator"/>
+            </a>
+          </div>
+          <div class="project-img-grid-item">
+            <a href="https://silentauction.morneydeetlefs.workers.dev/admin-help.html" target="_blank" onclick="event.stopPropagation()">
+              <img src="https://i.ibb.co/2HJKP7V/scr-Cap-Help.png" alt="Help File"/>
+            </a>
+          </div>
+        </div>
       </div>
+      </div>
+  
+
+<div class="full-divider"></div>
       <div class="project-body">
         <div class="project-tags">
           <span class="project-tag highlight">Featured</span>
@@ -724,7 +785,7 @@ footer {
         <div class="project-desc">
           A fully functional silent auction and tombola platform for community and charity events.
           Participants bid on items and earn raffle tickets by watching sponsor video ads.
-          Zero monthly cost â€” Google Sheets as database, Apps Script as API,
+          Zero monthly cost — Google Sheets as database, Apps Script as API,
           Cloudflare Pages for hosting. WhatsApp-integrated throughout.
         </div>
         <div class="project-footer">
@@ -744,10 +805,16 @@ footer {
           </div>
           <div class="project-status">Live</div>
         </div>
-      </div>
-    </a>
 
-    <!-- MY NEW PROJECT -->
+    </a>
+  </div>
+
+  <div class="full-divider"></div>
+
+  <!-- ══════════ OTHER PROJECTS ══════════ -->
+  <h3 class="section-title reveal" style="font-size: 1.4rem; margin-top: 2rem; margin-bottom: 2rem;">Other Work</h3>
+
+  <div class="projects-grid">
 <a class="project-card reveal" href="https://elysiumhomewatch-oss.github.io/workClock/admin" target="_blank">
   <div class="project-img">
     <img src="https://i.ibb.co/nswn07mm/admin.png"
@@ -777,7 +844,9 @@ footer {
     </div>
   </div>
 </a>
-<div class="full-divider"></div>
+
+<div></div>
+
 <a class="project-card reveal" href="https://morneydeetlefs.github.io/Verdure/" target="_blank">
   <div class="project-img">
     <img src="https://i.ibb.co/sh9rX8V/verdure.png"
@@ -804,12 +873,11 @@ footer {
       <div class="project-status">Live</div>
     </div>
   </div>
+
 </a>
+<div></div>
 
-<div class="full-divider"></div>
-
-
-    <!-- PLACEHOLDER â€” Future Project 2 -->
+    <!-- PLACEHOLDER — Future Project 2 -->
     <div class="project-card reveal" style="opacity:.25;pointer-events:none">
       <div class="project-img">
         <svg viewBox="0 0 280 200" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%">
@@ -834,26 +902,26 @@ footer {
 
 <div class="full-divider"></div>
 
-<!-- â•â•â•â•â•â•â•â•â•â• STACK â•â•â•â•â•â•â•â•â•â• -->
+<!-- ══════════ STACK ══════════ -->
 <section id="stack" class="stack-section">
   <div class="section-label reveal">Stack</div>
   <h2 class="section-title reveal">Tools of the trade</h2>
 
   <div class="stack-grid">
-    <div class="stack-item reveal"><div class="stack-icon">âš¡</div><div class="stack-name">JavaScript</div></div>
-    <div class="stack-item reveal"><div class="stack-icon">ðŸ“„</div><div class="stack-name">HTML / CSS</div></div>
-    <div class="stack-item reveal"><div class="stack-icon">ðŸ“Š</div><div class="stack-name">Google Sheets</div></div>
-    <div class="stack-item reveal"><div class="stack-icon">âš™ï¸</div><div class="stack-name">Apps Script</div></div>
-    <div class="stack-item reveal"><div class="stack-icon">â˜ï¸</div><div class="stack-name">Cloudflare</div></div>
-    <div class="stack-item reveal"><div class="stack-icon">ðŸ–¼ï¸</div><div class="stack-name">ImgBB API</div></div>
-    <div class="stack-item reveal"><div class="stack-icon">â–¶ï¸</div><div class="stack-name">YouTube API</div></div>
-    <div class="stack-item reveal"><div class="stack-icon">ðŸ’¬</div><div class="stack-name">WhatsApp</div></div>
+    <div class="stack-item reveal"><div class="stack-icon">⚡</div><div class="stack-name">JavaScript</div></div>
+    <div class="stack-item reveal"><div class="stack-icon">📄</div><div class="stack-name">HTML / CSS</div></div>
+    <div class="stack-item reveal"><div class="stack-icon">📊</div><div class="stack-name">Google Sheets</div></div>
+    <div class="stack-item reveal"><div class="stack-icon">⚙️</div><div class="stack-name">Apps Script</div></div>
+    <div class="stack-item reveal"><div class="stack-icon">☁️</div><div class="stack-name">Cloudflare</div></div>
+    <div class="stack-item reveal"><div class="stack-icon">🖼️</div><div class="stack-name">ImgBB API</div></div>
+    <div class="stack-item reveal"><div class="stack-icon">▶️</div><div class="stack-name">YouTube API</div></div>
+    <div class="stack-item reveal"><div class="stack-icon">💬</div><div class="stack-name">WhatsApp</div></div>
   </div>
 </section>
 
 <div class="full-divider"></div>
 
-<!-- â•â•â•â•â•â•â•â•â•â• ABOUT â•â•â•â•â•â•â•â•â•â• -->
+<!-- ══════════ ABOUT ══════════ -->
 <section id="about">
   <div class="section-label reveal">About</div>
   <h2 class="section-title reveal">The person behind the work</h2>
@@ -863,7 +931,7 @@ footer {
       <p>
         I'm <strong>Morney Deetlefs</strong>, based in <strong>South Africa</strong>.
         I build web platforms, tools and systems for community organisations,
-        events and local businesses â€” the kind of projects that make a real
+        events and local businesses — the kind of projects that make a real
         difference to real people without requiring enterprise budgets.
       </p>
       <p>
@@ -905,7 +973,7 @@ footer {
         <div class="value-num">04</div>
         <div>
           <div class="value-title">Craft over speed</div>
-          <div class="value-desc">Details matter. Typography, transitions, error messages â€” every pixel is considered.</div>
+          <div class="value-desc">Details matter. Typography, transitions, error messages — every pixel is considered.</div>
         </div>
       </div>
     </div>
@@ -938,7 +1006,7 @@ footer {
 
 <div class="full-divider"></div>
 
-<!-- â•â•â•â•â•â•â•â•â•â• CONTACT â•â•â•â•â•â•â•â•â•â• -->
+<!-- ══════════ CONTACT ══════════ -->
 <section id="contact">
   <div class="contact-wrap reveal">
     <h2 class="contact-title">Let's build something</h2>
@@ -954,14 +1022,14 @@ footer {
   </div>
 </section>
 
-<!-- â•â•â•â•â•â•â•â•â•â• FOOTER â•â•â•â•â•â•â•â•â•â• -->
+<!-- ══════════ FOOTER ══════════ -->
 <footer>
-  <div class="footer-mark">âœ¦ &nbsp; MD Works &nbsp; âœ¦</div>
-  <div class="footer-sub">Morney Deetlefs Â· South Africa Â· Builder of useful things for real people</div>
+  <div class="footer-mark">✦ &nbsp; MD Works &nbsp; ✦</div>
+  <div class="footer-sub">Morney Deetlefs · South Africa · Builder of useful things for real people</div>
 </footer>
 
 <script>
-// â”€â”€ CURSOR â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ── CURSOR ────────────────────────────────────────────────
 const cursor = document.getElementById('cursor');
 let mx = 0, my = 0, cx = 0, cy = 0;
 
@@ -981,7 +1049,7 @@ document.querySelectorAll('a, button, .project-card').forEach(el => {
   el.addEventListener('mouseleave', () => cursor.classList.remove('large'));
 });
 
-// â”€â”€ SCROLL REVEAL â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ── SCROLL REVEAL ─────────────────────────────────────────
 const revealObserver = new IntersectionObserver(entries => {
   entries.forEach((entry, i) => {
     if (entry.isIntersecting) {
@@ -993,7 +1061,7 @@ const revealObserver = new IntersectionObserver(entries => {
 
 document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-// â”€â”€ ACTIVE NAV LINK â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ── ACTIVE NAV LINK ───────────────────────────────────────
 const sections  = document.querySelectorAll('section[id]');
 const navLinks  = document.querySelectorAll('.nav-links a');
 
